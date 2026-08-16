@@ -1,0 +1,401 @@
+{
+	"nav": {
+		"admin": "Admin",
+		"adminPanel": "Admin Panel",
+		"orders": "Buyurtmalar",
+		"products": "Maxsulotlar",
+		"cart": "Savatcha",
+		"login": "Kirish",
+		"register": "Ro'yxatdan o'tish",
+		"logout": "Chiqish"
+	},
+	"home": {
+		"newCollection": "Yangi mavsum kolleksiyasi",
+		"description": "Eng so‘nggi kiyimlar, qulay narxlar va onlayn xarid qilish uchun sodda sahifa. Bizning do‘konimizda klassik futbolkalar, ko‘ylaklar, jinsi shimlar va sport kiyimlari mavjud.",
+		"viewProducts": "Maxsulotlarni ko‘rish"
+	}
+	,
+	"tab": {
+		"home": "Bosh sahifa",
+		"products": "Maxsulotlar",
+		"cart": "Savatcha",
+		"orders": "Buyurtmalar",
+		"profile": "Profil",
+		"adminPanel": "Admin Panel"
+	}
+	,
+	"adminOrders": {
+		"title": "Admin buyurtmalari",
+		"noAccess": "Sizda ushbu sahifaga kirish huquqi yo'q.",
+		"adminLabel": "AVARON Admin",
+		"header": "Kelgan Buyurtmalar Boshqaruvi",
+		"description": "Mijozlar tomonidan qilingan buyurtmalarni ko'rish va ularning holatini boshqarish.",
+		"total": "Jami: {{count}} ta",
+		"filter": {
+			"all": "Barchasi"
+		},
+		"empty": "Hozircha bu turdagi buyurtma yo‘q.",
+		"noDetails": "Buyurtma tafsilotlari mavjud emas.",
+		"unit": "ta",
+		"currency": "so‘m",
+		"size": "O‘lcham",
+		"phone": "Telefon:",
+		"address": "Manzil:",
+		"date": "Sana:",
+		"totalSum": "Jami summasi:",
+		"statusChanged": "Buyurtma #{{id}} holati {{status}} ga o'zgartirildi.",
+		"deleteModal": {
+			"title": "Buyurtmani o'chirish",
+			"message": "Siz ushbu buyurtmani rostanham o'chirishni xohlaysizmi? Bu amalni qaytarib bo'lmaydi.",
+			"cancel": "Yo'q",
+			"confirm": "Ha, o'chirish"
+		}
+		,"deleted": "Buyurtma #{{id}} o'chirildi.",
+		"deleteFailed": "Buyurtmani serverdan o'chirishda xato.",
+		"delete": "O'chirish",
+		"deleteAria": "Buyurtmani o'chirish"
+	},
+	"order": {
+		"status": {
+			"yangi": "Yangi",
+			"yolda": "Yo‘lda",
+			"yetkazilgan": "Yetkazilgan"
+		}
+	}
+	,
+	"adminPage": {
+		"title": "Admin panel",
+		"noAccess": "Sizda ushbu sahifani ko'rish huquqi yo'q.",
+		"adminLabel": "AVARON Admin Panel",
+		"header": "AVARON — Boshqaruv paneli",
+		"description": "Yangi mahsulotlar qo'shish, ombor statistikasi va foydalanuvchilar boshqaruvi.",
+		"loadError": "Admin panel ma'lumotlarini yuklashda xatolik yuz berdi.",
+		"fillAll": "Iltimos barcha maydonlarni to'ldiring.",
+		"invalidNumbers": "Narx va ombor qiymatlari to'g'ri musbat son bo'lishi kerak.",
+		"productUpdated": "Mahsulot muvaffaqiyatli yangilandi.",
+		"productCreated": "Yangi mahsulot muvaffaqiyatli qo'shildi.",
+		"updateError": "Mahsulotni yangilashda xatolik yuz berdi.",
+		"createError": "Mahsulot qo'shishda xatolik yuz berdi."
+		,
+		"loading": "Yuklanmoqda...",
+		"currency": "so'm",
+		"quantityUnit": "ta",
+		"countUnit": "ta",
+		"usersLabel": "Foydalanuvchilar",
+		"productsLabel": "Mahsulotlar",
+		"productsListTitle": "Mahsulotlar ro'yxati",
+		"statsLabel": "Statistika",
+		"editAction": "Tahrirlash",
+		"deleteModal": {
+			"title": "Mahsulotni o'chirish",
+			"message": "Siz ushbu mahsulotni rostanham o'chirishni xohlaysizmi? Bu amalni qaytarib bo'lmaydi.",
+			"cancel": "Yoq",
+			"confirm": "Ha, o'chirish"
+		},
+		"stats": {
+			"totalProducts": "Jami mahsulotlar:",
+			"totalUnits": "Ombordagi birliklar:",
+			"outOfStock": "Tugagan mahsulotlar:",
+			"totalValue": "Omborning umumiy qiymati:"
+		},
+		"userProfilesTitle": "Foydalanuvchi profillari",
+		"userProfilesSubtitle": "Tizimda ro'yxatdan o'tgan foydalanuvchilar (har sahifada 4 tadan).",
+		"table": {
+			"name": "Nomi",
+			"category": "Kategoriya",
+			"color": "Rang",
+			"gender": "Jinsi",
+			"price": "Narx",
+			"stock": "Ombor",
+			"image": "Rasm"
+		},
+		"editProduct": "Mahsulotni tahrirlash",
+		"newProduct": "Yangi mahsulot qo'shish",
+		"formDescription": "Mahsulot ma'lumotlarini quyidagi shakl orqali kiriting.",
+		"edit": "Tahrirlash",
+		"new": "Yangi",
+		"productName": "Mahsulot nomi",
+		"productNamePlaceholder": "Misol: Qora polo",
+		"price": "Narx",
+		"pricePlaceholder": "Misol: 120000",
+		"category": "Kategoriya",
+		"categoryPlaceholder": "Misol: polo",
+		"color": "Rang",
+		"colorPlaceholder": "Misol: qora",
+		"gender": "Kim uchun",
+		"genderOptions": {
+			"all": "Barchaga",
+			"male": "Erkaklar",
+			"female": "Ayollar"
+		},
+		"imageUpload": "Rasm yuklash",
+		"chooseFile": "Fayl tanlash",
+		"ready": "Tayyor",
+		"stock": "Ombor",
+		"stockPlaceholder": "Misol: 20",
+		"sizes": "O‘lchamlar",
+		"sizesPlaceholder": "Misol: S,M,L,XL",
+		"description": "Ta'rif",
+		"descriptionPlaceholder": "Mahsulot haqida qisqacha ma'lumot",
+		"productsListDescription": "Yaratilgan mahsulotlar va ombor ma'lumotlari.",
+		"updateProduct": "Mahsulotni yangilash",
+		"addProduct": "Mahsulot qo'shish",
+		"cancelEdit": "Tahrirlashni bekor qilish",
+		"productDeleted": "Mahsulot muvaffaqiyatli o'chirildi.",
+		"deleteError": "Mahsulotni o'chirishda xatolik yuz berdi."
+		,
+		"filterOptions": {
+			"all": "Barcha mahsulotlar",
+			"out": "Faqat tugaganlar"
+		}
+		,
+		"pagination": {
+			"prev": "Oldingi",
+			"next": "Keyingi",
+			"pageOf": "Sahifa {{current}} / {{total}}"
+		}
+	}
+	,
+	"cart": {
+		"clearAll": "Savatchani tozalash",
+		"clearConfirmMessage": "Savatchadagi barcha mahsulotlarni o‘chirishni xohlaysizmi?",
+		"removed": "Mahsulot savatchadan o‘chirildi.",
+		"cleared": "Savatchadagi barcha mahsulotlar o‘chirildi.",
+		"geolocationNotAvailable": "Brauzeringiz joylashuvni aniqlay olmaydi.",
+		"locationError": "Manzilni aniqlashda xatolik yuz berdi.",
+		"locationPermission": "Joylashuvni olishda xatolik. Iltimos, ruxsat bering.",
+		"fillPhoneAddress": "Iltimos telefon raqamingiz va manzilni kiriting.",
+		"localSaveWarning": "Buyurtma mahalliy saqlanib qoldi, lekin serverga jo‘natilmadi.",
+		"orderAccepted": "Buyurtma muvaffaqiyatli qabul qilindi!",
+		"title": "Savatcha",
+		"empty": "Savatchingiz hozircha bo‘sh.",
+		"viewProducts": "Maxsulotlarni ko‘rish",
+		"confirmedTitle": "Buyurtmangiz qabul qilindi",
+		"confirmedInfo": "Buyurtmangiz quyidagi manzilga yetkaziladi:",
+		"remove": "O'chirish",
+		"total": "Jami summa",
+		"actions": {
+			"checkout": "Buyurtmani yakunlash"
+		},
+		"order": {
+				"firstNameLabel": "Ism",
+				"firstNamePlaceholder": "Ismingiz",
+				"firstNameRequired": "Iltimos, ismingizni kiriting.",
+				"lastNameLabel": "Familiya",
+				"lastNamePlaceholder": "Familiyangiz (ixtiyoriy)",
+			"detailsTitle": "Buyurtma ma'lumotlari",
+			"phoneLabel": "Telefon raqam",
+			"phonePlaceholder": "+998 90 123 45 67",
+			"addressLabel": "Aniq manzil",
+			"addressPlaceholder": "Masalan: Toshkent shahri, Shayxontohur tumani, Mirzo Ulug‘bek ko‘chasi 24...",
+			"findLocation": "Joylashuvni aniqlash",
+			"findingLocation": "Manzil aniqlanmoqda...",
+			"locationHint": "Bet-tuygudan foydalanib, joylashuvingizni aniqlash.",
+			"confirm": "Buyurtmani tasdiqlash",
+			"confirmMessage": "Tez orada sizga telefon orqali bog'lanamiz: {{phone}}",
+			"coordinatesLabel": "Aniqlangan koordinatalar"
+		}
+	},
+	"login": {
+		"title": "Kirish",
+		"subtitle": "Hisobingizga kirish uchun ma'lumotlarni kiriting.",
+		"fields": {
+			"email": "Email",
+			"password": "Parol"
+		},
+		"actions": {
+			"submit": "Kirish",
+			"register": "Ro'yxatdan o'tish"
+		},
+		"noAccount": "Yangi foydalanuvchi?",
+		"errors": {
+			"fillAll": "Iltimos barcha maydonlarni to'ldiring.",
+			"invalidCredentials": "Email yoki parol noto'g'ri."
+		},
+		"success": "Tizimga muvaffaqiyatli kirdingiz."
+	},
+	"register": {
+		"title": "Ro'yxatdan o'tish",
+		"subtitle": "Yangi hisob ochish uchun ma'lumotlarni kiriting.",
+		"fields": {
+			"name": "Ism",
+			"email": "Email",
+			"password": "Parol"
+		},
+		"actions": {
+			"submit": "Ro'yxatdan o'tish",
+			"login": "Kirish"
+		},
+		"haveAccount": "Allaqachon hisob bormi?",
+		"errors": {
+			"fillAll": "Iltimos barcha maydonlarni to'ldiring.",
+			"passwordDigit": "Parol kamida 1 ta raqam bo'lishi kerak.",
+			"server": "Server bilan aloqa o'rnatib bo'lmadi."
+		},
+		"success": "Hisob muvaffaqiyatli yaratildi. Tizimga xush kelibsiz!"
+	},
+	"orders": {
+		"title": "Buyurtmalar tarixi",
+		"subtitle": "Sizning barcha buyurtmalaringizni ko'rish",
+		"loginPrompt": "Buyurtmalarni ko'rish uchun tizimga kiring.",
+		"loginButton": "Tizimga kirish",
+		"emptyTitle": "Hozircha buyurtmalaringiz yo'q.",
+		"emptySubtitle": "Birinchi xaridingizni amalga oshiring va buyurtmalar tarixini bu yerda kuzating.",
+		"shopButton": "Xarid qilishga o'tish",
+		"selectedStatus": "Tanlangan status",
+		"status": {
+			"all": "Barchasi"
+		},
+		"infoBox": "Buyurtmalar tarixi bu profil uchun doimiy saqlanadi va hech qachon o‘chirib yuborilmaydi.",
+		"filterEmptyTitle": "Tanlangan status bo‘yicha buyurtma topilmadi.",
+		"filterEmptySubtitle": "Boshqa statusni tanlang yoki yangi buyurtma qo‘shing.",
+		"orderNumber": "Buyurtma raqami",
+		"orderDate": "Sana va vaqt",
+		"totalItems": "Jami mahsulotlar soni",
+		"items": "Mahsulotlar",
+		"phone": "Telefon",
+		"address": "Manzil",
+		"coordinates": "Koordinatalar"
+	},
+	"profile": {
+		"title": "Profil",
+		"subtitle": "Hisobingizni shu yerda boshqaring.",
+		"guestInfo": "Saytga kirish yoki ro'yxatdan o'tish uchun pastdagi tugmalardan foydalaning.",
+		"accountLabel": "Hisob",
+		"fields": {
+			"email": "Email",
+			"role": "Rol"
+		},
+		"userRole": "user",
+		"actions": {
+			"login": "Kirish",
+			"register": "Ro'yxatdan o'tish",
+			"logout": "Chiqish",
+			"adminPanel": "Admin Panel"
+		},
+		"logoutSuccess": "Tizimdan chiqdingiz."
+	},
+	"favorites": {
+		"title": "Sevimlilar",
+		"subtitle": "Saqlangan mahsulotlar ro‘yxati",
+		"countUnit": "ta",
+		"emptyTitle": "Hozircha sevimlilar yo‘q",
+		"emptyText": "Mahsulotlar sahifasidan ko‘ngilga yaqin bo‘lganini tanlang.",
+		"viewProducts": "Mahsulotlarni ko‘rish",
+		"view": "Ko‘rish",
+		"remove": "O‘chirish"
+	},
+	"notFound": {
+		"title": "Sahifa topilmadi.",
+		"subtitle": "Sahifa mavjud emas yoki noto'g'ri URL kiritildi.",
+		"homeButton": "Bosh sahifaga qaytish"
+	},
+	"products": {
+		"title": "Maxsulotlar",
+		"subtitle": "Har bir kiyim uchun qulay tanlov va tezkor xarid.",
+		"assistant": {
+			"title": "O‘zingizga mos o‘lchamni aniqlash",
+			"subtitle": "Yosh, bo‘y va vazn bo‘yicha sayt sizga eng mos o‘lchamni tavsiya qiladi.",
+			"fields": {
+				"age": "Yosh",
+				"height": "Bo‘y (sm)",
+				"weight": "Vazn (kg)",
+				"bodyType": "Tana turi"
+			},
+			"bodyTypes": {
+				"normal": "O‘rtacha",
+				"thin": "Ozg‘in",
+				"strong": "Semiz"
+			},
+			"buttons": {
+				"submit": "Aniqlash",
+				"loading": "Aniqlanmoqda..."
+			},
+			"errors": {
+				"fillFields": "Iltimos yosh, bo‘y, vazn maydonlarini to‘ldiring.",
+				"noRecommendation": "Kechirasiz, mavjud o‘lchamlar bo‘yicha tavsiya topilmadi."
+			}
+		},
+		"filter": {
+			"title": "Filtr va saralash",
+			"subtitle": "Kategoriya, rang va narx bo‘yicha mahsulotlarni tezda toping.",
+			"category": "Kategoriya",
+			"color": "Rang",
+			"sort": "Saralash",
+			"allColors": "Barchasi",
+			"allCategories": "Hammasi",
+			"colorLabels": {
+				"qora": "Qora",
+				"oq": "Oq",
+				"jigarrang": "Jigarrang",
+				"yashil": "Yashil",
+				"malochni": "Malochni",
+				"xromrang": "Xromrang",
+				"bordo": "Bordo",
+				"indigo": "Indigo",
+				"mentol": "Mentol"
+			},
+			"categoryLabels": {
+				"zegna": "Zegna",
+				"polo": "Polo",
+				"boos": "BOOS",
+				"li gufo": "LIGUFO",
+				"jacket": "Jacket",
+				"nike": "NIKE",
+				"adidas": "ADIDAS",
+				"uniseks": "Uniseks",
+				"lion": "Lion",
+				"abstrakt": "Abstrakt"
+			},
+			"sortOptions": {
+				"name": "Nomi bo‘yicha",
+				"price": "Narxi bo‘yicha"
+			},
+			"noResults": "Tanlangan filtr bo‘yicha mahsulot topilmadi."
+		},
+		"gender": {
+			"male": "Erkaklar",
+			"female": "Ayollar",
+			"all": "Barchaga"
+		},
+		"stock": {
+			"out": "Tugagan"
+		},
+		"search": {
+			"label": "Qidirish",
+			"placeholder": "Tovar qidirish..."
+		},
+		"actions": {
+			"addToCart": "Savatchaga qo‘shish",
+			"inCartCount": "Savatchada {{count}} ta",
+			"incrementInfo": "Bosing + tugmasi bilan sonini oshirishingiz mumkin."
+		},
+		"adminNotice": "Admin rejimida xarid bajarilmaydi",
+		"modal": {
+			"close": "Yopish",
+			"price": "Narx",
+			"currency": "so‘m",
+			"sizes": "O‘lchamlar",
+			"stock": "Ombor",
+			"stockUnit": "ta",
+			"chooseSize": "O‘lcham tanlang",
+			"recommended": "Tavsiya qilingan"
+		},
+		"toasts": {
+			"removed": "{{name}} ({{size}}) savatchadan olib tashlandi",
+			"added": "{{name}} ({{size}}) savatchaga qo‘shildi",
+			"outOfStock": "{{name}} uchun {{size}} o‘lcham hozirda qolmagan.",
+			"sizeSelected": "{{name}} uchun {{size}} o‘lcham tanlandi."
+		},
+		"errors": {
+			"loginRequired": "Iltimos, savatchaga qo'shish uchun avval tizimga kiring yoki ro'yxatdan o'ting.",
+			"noSizes": "{{name}} uchun tavsiya etilgan o‘lchamlar mavjud emas.",
+			"chooseSize": "{{name}} uchun o‘lcham tanlang.",
+			"sizeUnavailable": "{{name}} uchun tanlangan {{size}} o‘lcham mavjud emas. Iltimos, boshqa o‘lchamni tanlang."
+		}
+	},
+	"common": {
+		"yes": "Ha",
+		"no": "Yo‘q"
+	}
+}

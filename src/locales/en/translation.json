@@ -1,0 +1,401 @@
+{
+	"nav": {
+		"admin": "Admin",
+		"adminPanel": "Admin Panel",
+		"orders": "Orders",
+		"products": "Products",
+		"cart": "Cart",
+		"login": "Login",
+		"register": "Register",
+		"logout": "Logout"
+	},
+	"home": {
+		"newCollection": "New season collection",
+		"description": "Latest clothing, fair prices and a simple page for online shopping. Our store offers classic t-shirts, shirts, jeans and sportswear.",
+		"viewProducts": "View products"
+	}
+	,
+	"tab": {
+		"home": "Home",
+		"products": "Products",
+		"cart": "Cart",
+		"orders": "Orders",
+		"profile": "Profile",
+		"adminPanel": "Admin Panel"
+	}
+	,
+	"adminOrders": {
+		"title": "Admin orders",
+		"noAccess": "You do not have permission to view this page.",
+		"adminLabel": "AVARON Admin",
+		"header": "Incoming Orders Management",
+		"description": "View orders placed by customers and manage their statuses.",
+		"total": "Total: {{count}}",
+		"filter": {
+			"all": "All"
+		},
+		"empty": "No orders of this type yet.",
+		"noDetails": "Order details are not available.",
+		"unit": "pcs",
+		"currency": "UZS",
+		"size": "Size",
+		"phone": "Phone:",
+		"address": "Address:",
+		"date": "Date:",
+		"totalSum": "Total sum:",
+		"statusChanged": "Order #{{id}} status changed to {{status}}."
+		,"deleteModal": {
+			"title": "Delete order",
+			"message": "Are you sure you want to delete this order? This action cannot be undone.",
+			"cancel": "No",
+			"confirm": "Yes, delete"
+		}
+		,"deleted": "Order #{{id}} deleted.",
+		"deleteFailed": "Failed to delete order on server.",
+		"delete": "Delete",
+		"deleteAria": "Delete order"
+	},
+	"order": {
+		"status": {
+			"yangi": "New",
+			"yolda": "In transit",
+			"yetkazilgan": "Delivered"
+		}
+	}
+	,
+	"adminPage": {
+		"title": "Admin panel",
+		"noAccess": "You do not have permission to view this page.",
+		"adminLabel": "AVARON Admin Panel",
+		"header": "AVARON — Admin dashboard",
+		"description": "Add new products, warehouse statistics and user management.",
+		"loadError": "Failed to load admin panel data.",
+		"fillAll": "Please fill all fields.",
+		"invalidNumbers": "Price and stock must be positive numbers.",
+		"productUpdated": "Product updated successfully.",
+		"productCreated": "New product added successfully.",
+		"updateError": "Failed to update product.",
+		"createError": "Failed to create product."
+		,
+		"loading": "Loading...",
+		"currency": "UZS",
+		"quantityUnit": "pcs",
+		"countUnit": "pcs",
+		"usersLabel": "Users",
+		"productsLabel": "Products",
+		"productsListTitle": "Products list",
+		"statsLabel": "Stats",
+		"editAction": "Edit",
+		"deleteModal": {
+			"title": "Delete product",
+			"message": "Are you sure you want to delete this product? This action cannot be undone.",
+			"cancel": "No",
+			"confirm": "Yes, delete"
+		},
+		"stats": {
+			"totalProducts": "Total products:",
+			"totalUnits": "Units in stock:",
+			"outOfStock": "Out of stock:",
+			"totalValue": "Total warehouse value:"
+		},
+		"userProfilesTitle": "User profiles",
+		"userProfilesSubtitle": "Registered users in the system (4 per page).",
+		"table": {
+			"name": "Name",
+			"category": "Category",
+			"color": "Color",
+			"gender": "Gender",
+			"price": "Price",
+			"stock": "Stock",
+			"image": "Image"
+		},
+		"editProduct": "Edit product",
+		"newProduct": "Add new product",
+		"formDescription": "Enter product information using the form below.",
+		"edit": "Edit",
+		"new": "New",
+		"productName": "Product name",
+		"productNamePlaceholder": "e.g. Black polo",
+		"price": "Price",
+		"pricePlaceholder": "e.g. 120000",
+		"category": "Category",
+		"categoryPlaceholder": "e.g. polo",
+		"color": "Color",
+		"colorPlaceholder": "e.g. black",
+		"gender": "For",
+		"genderOptions": {
+			"all": "All",
+			"male": "Men",
+			"female": "Women"
+		},
+		"imageUpload": "Upload image",
+		"chooseFile": "Choose file",
+		"ready": "Ready",
+		"stock": "Stock",
+		"stockPlaceholder": "e.g. 20",
+		"sizes": "Sizes",
+		"sizesPlaceholder": "e.g. S,M,L,XL",
+		"description": "Description",
+		"descriptionPlaceholder": "Brief product description",
+		"productsListDescription": "Created products and warehouse information.",
+		"updateProduct": "Update product",
+		"addProduct": "Add product",
+		"cancelEdit": "Cancel edit",
+		"productDeleted": "Product deleted successfully.",
+		"deleteError": "Failed to delete product."
+		,
+		"filterOptions": {
+			"all": "All products",
+			"out": "Out of stock"
+		}
+		,
+		"pagination": {
+			"prev": "Previous",
+			"next": "Next",
+			"pageOf": "Page {{current}} / {{total}}"
+		}
+	}
+	,
+	"cart": {
+		"clearAll": "Clear cart",
+		"clearConfirmMessage": "Do you really want to remove all items from the cart?",
+		"removed": "Product removed from cart.",
+		"cleared": "All products in cart have been removed.",
+		"geolocationNotAvailable": "Your browser cannot determine location.",
+		"locationError": "Failed to determine address. Please try again later.",
+		"locationPermission": "Error getting location. Please allow permission.",
+		"fillPhoneAddress": "Please enter your phone number and address.",
+		"localSaveWarning": "Order saved locally but was not sent to the server.",
+		"orderAccepted": "Order accepted successfully!",
+		"title": "Cart",
+		"empty": "Your cart is currently empty.",
+		"viewProducts": "View products",
+		"remove": "Remove",
+		"total": "Total amount",
+		"actions": {
+			"checkout": "Complete order"
+		},
+		"order": {
+				"firstNameLabel": "First name",
+				"firstNamePlaceholder": "Your first name",
+				"firstNameRequired": "Please enter your first name.",
+				"lastNameLabel": "Last name",
+				"lastNamePlaceholder": "Your last name (optional)",
+			"detailsTitle": "Order details",
+			"phoneLabel": "Phone number",
+			"phonePlaceholder": "+998 90 123 45 67",
+			"addressLabel": "Exact address",
+			"addressPlaceholder": "E.g.: Tashkent city, Shaykhantakhur district, Mirzo Ulug'bek street 24...",
+			"findLocation": "Find location",
+			"findingLocation": "Finding location...",
+			"locationHint": "Use the location button to detect your position.",
+			"confirm": "Confirm order",
+			"confirmMessage": "We will contact you by phone shortly: {{phone}}",
+			"coordinatesLabel": "Detected coordinates"
+		},
+		"confirmedTitle": "Your order has been accepted",
+		"confirmedInfo": "Your order will be delivered to the following address:"
+	},
+	"login": {
+		"title": "Login",
+		"subtitle": "Enter your details to sign in to your account.",
+		"fields": {
+			"email": "Email",
+			"password": "Password"
+		},
+		"actions": {
+			"submit": "Login",
+			"register": "Register"
+		},
+		"noAccount": "New user?",
+		"errors": {
+			"fillAll": "Please fill all fields.",
+			"invalidCredentials": "Email or password is incorrect."
+		},
+		"success": "Logged in successfully."
+	},
+	"register": {
+		"title": "Register",
+		"subtitle": "Enter your details to create a new account.",
+		"fields": {
+			"name": "Name",
+			"email": "Email",
+			"password": "Password"
+		},
+		"actions": {
+			"submit": "Register",
+			"login": "Login"
+		},
+		"haveAccount": "Already have an account?",
+		"errors": {
+			"fillAll": "Please fill all fields.",
+			"passwordDigit": "Password must contain at least one digit.",
+			"server": "Unable to reach the server."
+		},
+		"success": "Account created successfully. Welcome aboard!"
+	},
+	"orders": {
+		"title": "Order history",
+		"subtitle": "View all your orders.",
+		"loginPrompt": "Please sign in to view your orders.",
+		"loginButton": "Sign in",
+		"emptyTitle": "You have no orders yet.",
+		"emptySubtitle": "Make your first purchase and track orders here.",
+		"shopButton": "Go shopping",
+		"selectedStatus": "Selected status",
+		"status": {
+			"all": "All"
+		},
+		"infoBox": "Order history is stored for this profile and will never be deleted.",
+		"filterEmptyTitle": "No orders found for the selected status.",
+		"filterEmptySubtitle": "Choose another status or place a new order.",
+		"orderNumber": "Order number",
+		"orderDate": "Date and time",
+		"totalItems": "Total items",
+		"items": "Items",
+		"phone": "Phone",
+		"address": "Address",
+		"coordinates": "Coordinates"
+	},
+	"profile": {
+		"title": "Profile",
+		"subtitle": "Manage your account here.",
+		"guestInfo": "Use the buttons below to sign in or register.",
+		"accountLabel": "Account",
+		"fields": {
+			"email": "Email",
+			"role": "Role"
+		},
+		"userRole": "user",
+		"actions": {
+			"login": "Login",
+			"register": "Register",
+			"logout": "Logout",
+			"adminPanel": "Admin Panel"
+		},
+		"logoutSuccess": "You have been logged out."
+	},
+	"favorites": {
+		"title": "Favorites",
+		"subtitle": "Saved products list",
+		"countUnit": "items",
+		"emptyTitle": "No favorites yet",
+		"emptyText": "Choose the products you like from the product page.",
+		"viewProducts": "View products",
+		"view": "View",
+		"remove": "Remove"
+	},
+	"notFound": {
+		"title": "Page not found.",
+		"subtitle": "The page does not exist or the URL is incorrect.",
+		"homeButton": "Return to home"
+	},
+	"products": {
+		"title": "Products",
+		"subtitle": "A smart selection and fast shopping for every clothing item.",
+		"assistant": {
+			"title": "Find your best size",
+			"subtitle": "The site recommends the best size based on age, height, and weight.",
+			"fields": {
+				"age": "Age",
+				"height": "Height (cm)",
+				"weight": "Weight (kg)",
+				"bodyType": "Body type"
+			},
+			"bodyTypes": {
+				"normal": "Normal",
+				"thin": "Thin",
+				"strong": "Strong"
+			},
+			"buttons": {
+				"submit": "Find",
+				"loading": "Finding..."
+			},
+			"errors": {
+				"fillFields": "Please fill in age, height, and weight fields.",
+				"noRecommendation": "Sorry, no recommendation could be found for the available sizes."
+			}
+		},
+		"filter": {
+			"title": "Filter & sort",
+			"subtitle": "Quickly find products by category, color and price.",
+			"category": "Category",
+			"color": "Color",
+			"sort": "Sort",
+			"allColors": "All",
+			"allCategories": "All",
+			"colorLabels": {
+				"qora": "Black",
+				"oq": "White",
+				"jigarrang": "Brown",
+				"yashil": "Green",
+				"malochni": "Ivory",
+				"xromrang": "Chrome",
+				"bordo": "Bordeaux",
+				"indigo": "Indigo",
+				"mentol": "Mint"
+			},
+			"categoryLabels": {
+				"zegna": "Zegna",
+				"polo": "Polo",
+				"boos": "BOOS",
+				"li gufo": "LIGUFO",
+				"jacket": "Jacket",
+				"nike": "NIKE",
+				"adidas": "ADIDAS",
+				"uniseks": "Unisex",
+				"lion": "Lion",
+				"abstrakt": "Abstract"
+			},
+			"sortOptions": {
+				"name": "By name",
+				"price": "By price"
+			},
+			"noResults": "No products found for the selected filters."
+		},
+		"gender": {
+			"male": "Men",
+			"female": "Women",
+			"all": "All"
+		},
+		"stock": {
+			"out": "Out of stock"
+		},
+		"search": {
+			"label": "Search",
+			"placeholder": "Search products..."
+		},
+		"actions": {
+			"addToCart": "Add to cart",
+			"inCartCount": "In cart: {{count}}",
+			"incrementInfo": "Press + to increase the quantity."
+		},
+		"adminNotice": "Cart operations are disabled in admin mode",
+		"modal": {
+			"close": "Close",
+			"price": "Price",
+			"currency": "UZS",
+			"sizes": "Sizes",
+			"stock": "Stock",
+			"stockUnit": "pcs",
+			"chooseSize": "Choose a size",
+			"recommended": "Recommended"
+		},
+		"toasts": {
+			"removed": "{{name}} ({{size}}) was removed from the cart",
+			"added": "{{name}} ({{size}}) was added to the cart",
+			"outOfStock": "{{name}} size {{size}} is currently out of stock.",
+			"sizeSelected": "Size {{size}} selected for {{name}}."
+		},
+		"errors": {
+			"loginRequired": "Please sign in or register before adding to cart.",
+			"noSizes": "No recommended sizes are available for {{name}}.",
+			"chooseSize": "Please choose a size for {{name}}.",
+			"sizeUnavailable": "Size {{size}} is not available for {{name}}. Please select another size."
+		}
+	},
+	"common": {
+		"yes": "Yes",
+		"no": "No"
+	}
+}
