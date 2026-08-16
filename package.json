@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "server": "json-server --watch src/data/db.json",
+    "server": "node server.cjs",
     "start": "concurrently \"npm run dev\" \"npm run server\""
   },
   "dependencies": {
