@@ -32,7 +32,10 @@ function AdminOrdersPage() {
     setOrders(response.data);
   } catch (err) {
     console.error('Failed to fetch orders from server', err);
-    setOrders(readStoredOrders()); // zaxira sifatida local'dan
+    // don't wipe an already-loaded list with an (almost always empty) local
+    // cache just because a later refetch timed out — only fall back when we
+    // haven't shown anything yet
+    setOrders((prev) => (prev.length > 0 ? prev : readStoredOrders()));
   }
 };
 

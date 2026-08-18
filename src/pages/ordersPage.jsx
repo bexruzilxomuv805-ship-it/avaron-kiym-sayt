@@ -47,26 +47,30 @@ function OrdersPage() {
       return;
     }
 
-    let allOrders;
+    const buildUserOrders = (allOrders) => {
+      let userOrders = allOrders
+        .filter((order) => order.userId === currentUser.id)
+        .map(normalizeOrder);
+
+      // keep the just-placed order visible even if the server list hasn't caught up yet
+      if (incomingOrder && !userOrders.some((order) => order.id === incomingOrder.id)) {
+        userOrders = [normalizeOrder(incomingOrder), ...userOrders];
+      }
+
+      userOrders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      return userOrders;
+    };
+
     try {
       const response = await api.get("/orders");
-      allOrders = response.data;
+      setOrders(buildUserOrders(response.data));
     } catch (err) {
       console.error("Failed to fetch orders from server", err);
-      allOrders = readStoredOrders();
+      // don't wipe an already-loaded list with an (almost always empty) local
+      // cache just because a later refetch timed out — only fall back when we
+      // haven't shown anything yet
+      setOrders((prev) => (prev.length > 0 ? prev : buildUserOrders(readStoredOrders())));
     }
-
-    let userOrders = allOrders
-      .filter((order) => order.userId === currentUser.id)
-      .map(normalizeOrder);
-
-    // keep the just-placed order visible even if the server list hasn't caught up yet
-    if (incomingOrder && !userOrders.some((order) => order.id === incomingOrder.id)) {
-      userOrders = [normalizeOrder(incomingOrder), ...userOrders];
-    }
-
-    userOrders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-    setOrders(userOrders);
   }, [currentUser, incomingOrder]);
 
   useEffect(() => {
