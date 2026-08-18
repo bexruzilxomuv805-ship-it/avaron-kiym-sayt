@@ -86,17 +86,19 @@ function AdminOrdersPage() {
   };
 
   const deleteOrderConfirmed = async (orderId) => {
-    // remove locally
+    // instant UI feedback, but wait for the server delete before
+    // broadcasting "order-updated" (see updateOrderStatus above for why)
     const nextOrders = orders.filter((o) => o.id !== orderId);
     setOrders(nextOrders);
-    writeStoredOrders(nextOrders);
 
     try {
       await api.delete(`/orders/${orderId}`);
+      writeStoredOrders(nextOrders);
       showAppToast(t('adminOrders.deleted', { id: orderId }) || t('adminOrders.deleteSuccess', { id: orderId }), 'success');
     } catch (err) {
       console.error('delete order failed', err);
       showAppToast(t('adminOrders.deleteFailed') || 'Failed to delete from server', 'error');
+      refreshOrders(); // delete failed server-side: resync UI with the real server state
     }
   };
 

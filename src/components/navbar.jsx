@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaUser, FaUserPlus, FaBoxOpen, FaSignOutAlt, FaClipboardList, FaHeart } from 'react-icons/fa';
 import { useEffect, useState } from "react";
+import api from "../api/api.js";
 import { getCartBadgeCount } from "../utils/cartUtils.js";
 import { showAppToast } from "../utils/toastUtils.js";
 import { useTranslation } from 'react-i18next';
@@ -15,17 +16,6 @@ function Navbar({ currentUser, onLogout }) {
     try {
       const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
       return getCartBadgeCount(storedCart);
-    } catch (error) {
-      console.error(error);
-      return 0;
-    }
-  };
-
-  const getAdminOrderCount = () => {
-    if (!currentUser || currentUser.role !== "admin") return 0;
-    try {
-      const storedOrders = JSON.parse(localStorage.getItem("orders") || "[]");
-      return storedOrders.filter((order) => (order.status || "yangi") === "yangi").length;
     } catch (error) {
       console.error(error);
       return 0;
@@ -50,17 +40,39 @@ function Navbar({ currentUser, onLogout }) {
   }, []);
 
   useEffect(() => {
-    const updateAdminOrderCount = () => {
-      setAdminOrderCount(getAdminOrderCount());
+    const updateAdminOrderCount = async () => {
+      if (!currentUser || currentUser.role !== "admin") {
+        setAdminOrderCount(0);
+        return;
+      }
+      try {
+        const response = await api.get("/orders");
+        const newCount = (response.data || []).filter(
+          (order) => (order.status || "yangi") === "yangi"
+        ).length;
+        setAdminOrderCount(newCount);
+      } catch (error) {
+        console.error(error);
+        try {
+          const storedOrders = JSON.parse(localStorage.getItem("orders") || "[]");
+          setAdminOrderCount(
+            storedOrders.filter((order) => (order.status || "yangi") === "yangi").length
+          );
+        } catch (e) {
+          setAdminOrderCount(0);
+        }
+      }
     };
 
     updateAdminOrderCount();
     window.addEventListener("order-updated", updateAdminOrderCount);
     window.addEventListener("storage", updateAdminOrderCount);
+    window.addEventListener("focus", updateAdminOrderCount);
 
     return () => {
       window.removeEventListener("order-updated", updateAdminOrderCount);
       window.removeEventListener("storage", updateAdminOrderCount);
+      window.removeEventListener("focus", updateAdminOrderCount);
     };
   }, [currentUser]);
 
