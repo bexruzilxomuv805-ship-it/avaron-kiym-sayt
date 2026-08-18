@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useReduxState } from "../store/hooks.js";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { FaSignInAlt, FaClipboardList, FaPhone, FaMapMarkerAlt, FaCalendarAlt, FaBoxOpen, FaTruck, FaCheckCircle, FaShoppingCart } from 'react-icons/fa';
 import api from "../api/api.js";
 import { readStoredOrders } from "../utils/orderUtils.js";
@@ -14,7 +14,15 @@ const statusOptions = [
 ];
 
 function OrdersPage() {
-  const [orders, setOrders] = useState([]);
+  const location = useLocation();
+  const incomingOrder = location.state?.newOrder;
+  const normalizeOrder = (order) => ({
+    ...order,
+    status: order.status ? String(order.status).toLowerCase() : "yangi",
+  });
+
+  // show the just-placed order instantly, before the server round-trip resolves
+  const [orders, setOrders] = useState(() => (incomingOrder ? [normalizeOrder(incomingOrder)] : []));
   const [statusFilter, setStatusFilter] = useState("all");
   const [productImages, setProductImages] = useState({});
   const currentUser = useReduxState((state) => state.auth.user);
@@ -48,15 +56,18 @@ function OrdersPage() {
       allOrders = readStoredOrders();
     }
 
-    const userOrders = allOrders
+    let userOrders = allOrders
       .filter((order) => order.userId === currentUser.id)
-      .map((order) => ({
-        ...order,
-        status: order.status ? String(order.status).toLowerCase() : "yangi",
-      }))
-      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      .map(normalizeOrder);
+
+    // keep the just-placed order visible even if the server list hasn't caught up yet
+    if (incomingOrder && !userOrders.some((order) => order.id === incomingOrder.id)) {
+      userOrders = [normalizeOrder(incomingOrder), ...userOrders];
+    }
+
+    userOrders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     setOrders(userOrders);
-  }, [currentUser]);
+  }, [currentUser, incomingOrder]);
 
   useEffect(() => {
     loadOrders();

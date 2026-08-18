@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import api from "../api/api.js";
 import { useReduxState } from "../store/hooks.js";
-import { FaMinus, FaPlus, FaTrash, FaMapMarkerAlt, FaShoppingCart, FaCheckCircle, FaBoxOpen, FaCreditCard } from 'react-icons/fa';
+import { FaMinus, FaPlus, FaTrash, FaMapMarkerAlt, FaShoppingCart, FaBoxOpen, FaCreditCard } from 'react-icons/fa';
 import { showAppToast } from "../utils/toastUtils.js";
 import { buildOrderPayloadForDb, readStoredOrders, writeStoredOrders } from "../utils/orderUtils.js";
 import { useTranslation } from 'react-i18next';
@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 function CardPage() {
   const currentUser = useReduxState((state) => state.auth.user);
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [cart, setCart] = useState([]);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [phone, setPhone] = useState("");
@@ -17,7 +18,6 @@ function CardPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [coordinates, setCoordinates] = useState(null);
-  const [orderConfirmed, setOrderConfirmed] = useState(false);
   const [locationLoading, setLocationLoading] = useState(false);
   const [formError, setFormError] = useState("");
   const [showClearConfirm, setShowClearConfirm] = useState(false);
@@ -229,7 +229,6 @@ function CardPage() {
       showAppToast(t('cart.localSaveWarning', { defaultValue: "Buyurtma serverga saqlanmadi, mahalliy saqlashdan foydalanildi" }), "warning");
     }
 
-    setOrderConfirmed(true);
     setCheckoutOpen(false);
     setFormError("");
     localStorage.removeItem("cart");
@@ -237,6 +236,10 @@ function CardPage() {
     window.dispatchEvent(new Event("cart-updated"));
     setCoordinates(null);
     showAppToast(t('cart.orderAccepted', { defaultValue: "Buyurtmangiz qabul qilindi" }), "success");
+
+    // jump straight to order history with the new order shown instantly,
+    // instead of waiting for a fresh fetch from the server
+    navigate("/orders", { state: { newOrder } });
   };
 
   if (currentUser?.role === "admin") {
@@ -249,7 +252,7 @@ function CardPage() {
         <FaShoppingCart /> {t('cart.title', { defaultValue: 'Savatcha' })}
       </h1>
 
-      {cart.length === 0 && !orderConfirmed ? (
+      {cart.length === 0 ? (
         <div style={{ padding: 24, border: "1px solid #e6e6e6", borderRadius: 20, background: "#fff", maxWidth: 600 }}>
           <p style={{ margin: 0, marginBottom: 12, color: "#333", display: 'flex', alignItems: 'center', gap: 8 }}>
             <FaBoxOpen /> {t('cart.empty', { defaultValue: "Savatcha bo‘sh" })}
@@ -257,28 +260,6 @@ function CardPage() {
           <Link to="/products" style={{ color: "#111", textDecoration: "none", fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
             <FaShoppingCart /> {t('cart.viewProducts', { defaultValue: 'Mahsulotlar' })}
           </Link>
-        </div>
-      ) : null}
-
-      {orderConfirmed ? (
-        <div style={{ marginTop: 16, padding: 24, borderRadius: 20, background: "#f8fafc", border: "1px solid #c7d2fe", maxWidth: 700 }}>
-            <h2 style={{ margin: 0, marginBottom: 12, fontSize: 24, color: "#111", display: 'flex', alignItems: 'center', gap: 10 }}>
-            <FaCheckCircle /> {t('cart.confirmedTitle', { defaultValue: 'Buyurtma qabul qilindi' })}
-          </h2>
-          <p style={{ margin: 0, marginBottom: 12, color: "#475569" }}>
-            {t('cart.confirmedInfo', { defaultValue: 'Buyurtmangiz muvaffaqiyatli qabul qilindi.' })}
-          </p>
-            <p style={{ margin: 0, padding: "14px 18px", borderRadius: 16, background: "#eef2ff", color: "#3730a3", fontWeight: 600 }}>
-            {location}
-          </p>
-          {coordinates ? (
-            <p style={{ margin: "12px 0 0", color: "#0f766e", fontWeight: 600 }}>
-              Koordinatalar: {coordinates.latitude.toFixed(6)}, {coordinates.longitude.toFixed(6)}
-            </p>
-          ) : null}
-            <p style={{ marginTop: 16, color: "#334155" }}>
-            {t('cart.order.confirmMessage', { phone, defaultValue: 'Sizga bog‘lanamiz: {{phone}}' })}
-          </p>
         </div>
       ) : null}
 
@@ -365,7 +346,6 @@ function CardPage() {
             <button
               onClick={() => {
                 setCheckoutOpen(true);
-                setOrderConfirmed(false);
                 setFormError("");
               }}
               style={{ padding: "14px 20px", border: "none", borderRadius: 18, background: "#111827", color: "#fff", cursor: "pointer", fontSize: 16, fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: 10 }}
@@ -376,7 +356,7 @@ function CardPage() {
         </>
       ) : null}
 
-      {checkoutOpen && !orderConfirmed ? (
+      {checkoutOpen ? (
         <form
           onSubmit={handleOrderSubmit}
           style={{ marginTop: 24, padding: 24, borderRadius: 20, background: "#fff", border: "1px solid #e2e8f0", maxWidth: 700 }}
