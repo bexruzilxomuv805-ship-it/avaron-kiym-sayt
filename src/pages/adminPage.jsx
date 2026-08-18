@@ -59,6 +59,7 @@ function AdminPage() {
   const fileInputRef = useRef(null);
   const [editingProductId, setEditingProductId] = useState(null);
   const [deletingProductId, setDeletingProductId] = useState(null);
+  const originalStockRef = useRef(null);
 
   const [form, setForm] = useState({
     name: "",
@@ -203,14 +204,22 @@ function AdminPage() {
       gender: form.gender || "all",
       image: productImages[0] || "/no-image.svg",
       images: productImages,
-      stock,
       size: form.size ? form.size.split(",").map((item) => item.trim()).filter(Boolean) : ["S", "M", "L"],
       description: form.description,
     };
 
+    // Only send stock if this is a new product, or the admin actually
+    // changed it in the form. Otherwise a stale value (loaded when the
+    // edit form was opened) could overwrite a stock decrement that
+    // happened server-side from an order placed while the form was open.
+    const stockChanged = !editingProductId || stock !== originalStockRef.current;
+    if (stockChanged) {
+      productPayload.stock = stock;
+    }
+
     try {
         if (editingProductId) {
-        await api.put(`/products/${editingProductId}`, productPayload);
+        await api.patch(`/products/${editingProductId}`, productPayload);
         setMessage(t('adminPage.productUpdated'));
       } else {
         await api.post("/products", productPayload);
@@ -238,6 +247,7 @@ function AdminPage() {
 
   const handleEditProduct = (product) => {
     setEditingProductId(product.id);
+    originalStockRef.current = Number(product.stock || 0);
     const images = Array.isArray(product.images) && product.images.length ? product.images : product.image ? [product.image] : [];
     setForm({
       name: product.name || "",
