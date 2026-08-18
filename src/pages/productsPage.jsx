@@ -11,7 +11,7 @@ import { showAppToast } from "../utils/toastUtils.js";
 import { useTranslation } from 'react-i18next';
 
 const getProductImage = (image) => {
-  if (!image) return "/no-image.png";
+  if (!image) return "/no-image.svg";
   if (image.startsWith("data:")) return image;
   if (image.startsWith("http://") || image.startsWith("https://")) return image;
   if (image.startsWith("/")) return image;
@@ -19,11 +19,11 @@ const getProductImage = (image) => {
 };
 
 const getProductImages = (product) => {
-  if (!product) return ["/no-image.png"];
+  if (!product) return ["/no-image.svg"];
   const images = Array.isArray(product.images) ? product.images.filter(Boolean) : [];
   if (images.length) return images.map(getProductImage);
   if (product.image) return [getProductImage(product.image)];
-  return ["/no-image.png"];
+  return ["/no-image.svg"];
 };
 // Product image carousel used on product cards: cycles images while hovering
 function ProductImageCarousel({ images = [], alt = "", className = "" }) {
@@ -50,7 +50,7 @@ function ProductImageCarousel({ images = [], alt = "", className = "" }) {
     setIndex(0);
   };
 
-  const current = images && images.length ? images[index] : "/no-image.png";
+  const current = images && images.length ? images[index] : "/no-image.svg";
 
   const onTouchStart = (e) => {
     if (!e.touches || e.touches.length === 0) return;

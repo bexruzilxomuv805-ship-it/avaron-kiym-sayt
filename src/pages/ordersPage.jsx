@@ -16,8 +16,22 @@ const statusOptions = [
 function OrdersPage() {
   const [orders, setOrders] = useState([]);
   const [statusFilter, setStatusFilter] = useState("all");
+  const [productImages, setProductImages] = useState({});
   const currentUser = useReduxState((state) => state.auth.user);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    api
+      .get("/products")
+      .then((response) => {
+        const map = {};
+        (response.data || []).forEach((product) => {
+          map[product.id] = product.image;
+        });
+        setProductImages(map);
+      })
+      .catch((err) => console.error("Failed to fetch products for order images", err));
+  }, []);
 
   const loadOrders = useCallback(async () => {
     if (!currentUser) {
@@ -185,8 +199,9 @@ function OrdersPage() {
                   {order.items.map((item) => (
                     <div key={item.cartKey || item.id} style={{ display: "flex", gap: 12, alignItems: "center" }}>
                       <img
-                        src={item.image}
+                        src={item.image || productImages[item.id] || "/no-image.svg"}
                         alt={item.name}
+                        onError={(event) => { event.currentTarget.src = "/no-image.svg"; }}
                         style={{ width: 60, height: 60, objectFit: "cover", borderRadius: 12 }}
                       />
                       <div style={{ flex: 1 }}>

@@ -24,6 +24,7 @@ function AdminOrdersPage() {
   const [orders, setOrders] = useState([]);
   const [orderFilter, setOrderFilter] = useState("all");
   const [message, setMessage] = useState("");
+  const [productImages, setProductImages] = useState({});
 
   const refreshOrders = async () => {
   try {
@@ -35,8 +36,22 @@ function AdminOrdersPage() {
   }
 };
 
+  const refreshProductImages = async () => {
+    try {
+      const response = await api.get('/products');
+      const map = {};
+      (response.data || []).forEach((product) => {
+        map[product.id] = product.image;
+      });
+      setProductImages(map);
+    } catch (err) {
+      console.error('Failed to fetch products for order images', err);
+    }
+  };
+
   useEffect(() => {
     refreshOrders();
+    refreshProductImages();
     window.addEventListener("order-updated", refreshOrders);
     window.addEventListener("storage", refreshOrders);
 
@@ -203,7 +218,12 @@ function AdminOrdersPage() {
                       <p className="text-sm text-slate-600">{t('adminOrders.noDetails')}</p>
                     ) : items.map((item) => (
                       <div key={`${order.id}-${item.cartKey || item.id}`} className="flex gap-3 rounded-2xl border border-slate-200 bg-white p-3">
-                        <img src={item.image || "/no-image.svg"} alt={item.name} className="h-16 w-16 rounded-xl object-cover" />
+                        <img
+                          src={item.image || productImages[item.id] || "/no-image.svg"}
+                          alt={item.name}
+                          onError={(event) => { event.currentTarget.src = "/no-image.svg"; }}
+                          className="h-16 w-16 rounded-xl object-cover"
+                        />
                         <div className="min-w-0 flex-1">
                           <p className="font-semibold text-slate-900">{item.name}</p>
                           <p className="text-sm text-slate-500">{item.quantity || 1} {t('adminOrders.unit')} · {Number(item.price || 0).toLocaleString()} {t('adminOrders.currency')}</p>
