@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useReduxState } from "../store/hooks.js";
 import { Link, Navigate } from "react-router-dom";
 import { FaSignInAlt, FaClipboardList, FaPhone, FaMapMarkerAlt, FaCalendarAlt, FaBoxOpen, FaTruck, FaCheckCircle, FaShoppingCart } from 'react-icons/fa';
+import api from "../api/api.js";
 import { readStoredOrders } from "../utils/orderUtils.js";
 import { useTranslation } from 'react-i18next';
 
@@ -18,14 +19,22 @@ function OrdersPage() {
   const currentUser = useReduxState((state) => state.auth.user);
   const { t } = useTranslation();
 
-  useEffect(() => {
+  const loadOrders = useCallback(async () => {
     if (!currentUser) {
       setOrders([]);
       return;
     }
 
-    const storedOrders = readStoredOrders();
-    const userOrders = storedOrders
+    let allOrders;
+    try {
+      const response = await api.get("/orders");
+      allOrders = response.data;
+    } catch (err) {
+      console.error("Failed to fetch orders from server", err);
+      allOrders = readStoredOrders();
+    }
+
+    const userOrders = allOrders
       .filter((order) => order.userId === currentUser.id)
       .map((order) => ({
         ...order,
@@ -36,27 +45,18 @@ function OrdersPage() {
   }, [currentUser]);
 
   useEffect(() => {
-    const refreshOrders = () => {
-      if (!currentUser) return;
-      const storedOrders = readStoredOrders();
-      const userOrders = storedOrders
-        .filter((order) => order.userId === currentUser.id)
-        .map((order) => ({
-          ...order,
-          status: order.status ? String(order.status).toLowerCase() : "yangi",
-        }))
-        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      setOrders(userOrders);
-    };
+    loadOrders();
+  }, [loadOrders]);
 
-    window.addEventListener("order-updated", refreshOrders);
-    window.addEventListener("storage", refreshOrders);
+  useEffect(() => {
+    window.addEventListener("order-updated", loadOrders);
+    window.addEventListener("storage", loadOrders);
 
     return () => {
-      window.removeEventListener("order-updated", refreshOrders);
-      window.removeEventListener("storage", refreshOrders);
+      window.removeEventListener("order-updated", loadOrders);
+      window.removeEventListener("storage", loadOrders);
     };
-  }, [currentUser]);
+  }, [loadOrders]);
 
   const filteredOrders = useMemo(() => {
     if (statusFilter === "all") return orders;
