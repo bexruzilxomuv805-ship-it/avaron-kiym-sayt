@@ -13,8 +13,7 @@
 		"newCollection": "Новая сезонная коллекция",
 		"description": "Последняя одежда, выгодные цены и удобная страница для онлайн-покупок. В нашем магазине есть классические футболки, рубашки, джинсы и спортивная одежда.",
 		"viewProducts": "Посмотреть товары"
-	}
-	,
+	},
 	"tab": {
 		"home": "Главная",
 		"products": "Товары",
@@ -22,8 +21,7 @@
 		"orders": "Заказы",
 		"profile": "Профиль",
 		"adminPanel": "Панель админа"
-	}
-	,
+	},
 	"adminOrders": {
 		"title": "Админ заказы",
 		"noAccess": "У вас нет прав для просмотра этой страницы.",
@@ -43,17 +41,20 @@
 		"address": "Адрес:",
 		"date": "Дата:",
 		"totalSum": "Итоговая сумма:",
-		"statusChanged": "Заказ #{{id}} изменен на {{status}}."
-		,"deleteModal": {
+		"statusChanged": "Заказ #{{id}} изменен на {{status}}.",
+		"deleteModal": {
 			"title": "Удалить заказ",
 			"message": "Вы действительно хотите удалить этот заказ? Это действие нельзя отменить.",
 			"cancel": "Нет",
 			"confirm": "Да, удалить"
-		}
-		,"deleted": "Заказ #{{id}} удалён.",
+		},
+		"deleted": "Заказ #{{id}} удалён.",
 		"deleteFailed": "Ошибка удаления заказа на сервере.",
 		"delete": "Удалить",
-		"deleteAria": "Удалить заказ"
+		"deleteAria": "Удалить заказ",
+		"deleteSuccess": "Заказ #{{id}} удалён.",
+		"statusUpdateFailed": "Статус не сохранён на сервере.",
+		"noDate": "Дата не указана"
 	},
 	"order": {
 		"status": {
@@ -61,14 +62,13 @@
 			"yolda": "В пути",
 			"yetkazilgan": "Доставлен"
 		}
-	}
-	,
+	},
 	"adminPage": {
 		"title": "Панель админа",
 		"noAccess": "У вас нет прав для просмотра этой страницы.",
 		"adminLabel": "AVARON Admin Panel",
 		"header": "AVARON — Панель управления",
-		"description": "Добавление новых товаров, статистика склада и управление пользователями.",
+		"description": "Описание",
 		"loadError": "Ошибка при загрузке данных панели администратора.",
 		"fillAll": "Пожалуйста, заполните все поля.",
 		"invalidNumbers": "Цена и количество должны быть положительными числами.",
@@ -134,27 +134,23 @@
 		"stockPlaceholder": "напр.: 20",
 		"sizes": "Размеры",
 		"sizesPlaceholder": "напр.: S,M,L,XL",
-		"description": "Описание",
 		"descriptionPlaceholder": "Краткое описание товара",
 		"productsListDescription": "Созданные товары и информация по складу.",
 		"updateProduct": "Обновить товар",
 		"addProduct": "Добавить товар",
 		"cancelEdit": "Отменить редактирование",
 		"productDeleted": "Товар успешно удален.",
-		"deleteError": "Ошибка при удалении товара."
-		,
+		"deleteError": "Ошибка при удалении товара.",
 		"filterOptions": {
 			"all": "Все товары",
 			"out": "Только отсутствующие"
-		}
-		,
+		},
 		"pagination": {
 			"prev": "Предыдущая",
 			"next": "Следующая",
 			"pageOf": "Страница {{current}} / {{total}}"
 		}
-	}
-	,
+	},
 	"cart": {
 		"clearAll": "Очистить корзину",
 		"clearConfirmMessage": "Вы действительно хотите удалить все товары из корзины?",
@@ -175,11 +171,11 @@
 			"checkout": "Оформить заказ"
 		},
 		"order": {
-				"firstNameLabel": "Имя",
-				"firstNamePlaceholder": "Ваше имя",
-				"firstNameRequired": "Пожалуйста, введите ваше имя.",
-				"lastNameLabel": "Фамилия",
-				"lastNamePlaceholder": "Ваша фамилия (необязательно)",
+			"firstNameLabel": "Имя",
+			"firstNamePlaceholder": "Ваше имя",
+			"firstNameRequired": "Пожалуйста, введите ваше имя.",
+			"lastNameLabel": "Фамилия",
+			"lastNamePlaceholder": "Ваша фамилия (необязательно)",
 			"detailsTitle": "Данные заказа",
 			"phoneLabel": "Номер телефона",
 			"phonePlaceholder": "+998 90 123 45 67",
@@ -193,7 +189,10 @@
 			"coordinatesLabel": "Обнаруженные координаты"
 		},
 		"confirmedTitle": "Ваш заказ принят",
-		"confirmedInfo": "Ваш заказ будет доставлен по следующему адресу:"
+		"confirmedInfo": "Ваш заказ будет доставлен по следующему адресу:",
+		"size": "Размер",
+		"notSelected": "Не выбран",
+		"stockLimit": "Осталось только {{stock}} шт."
 	},
 	"login": {
 		"title": "Вход",
@@ -282,7 +281,9 @@
 		"emptyText": "Выберите понравившиеся товары на странице товаров.",
 		"viewProducts": "Посмотреть товары",
 		"view": "Смотреть",
-		"remove": "Удалить"
+		"remove": "Удалить",
+		"addAria": "Добавить в избранное",
+		"removeAria": "Убрать из избранного"
 	},
 	"notFound": {
 		"title": "Страница не найдена.",
@@ -313,7 +314,9 @@
 			"errors": {
 				"fillFields": "Пожалуйста, заполните поля возраст, рост и вес.",
 				"noRecommendation": "Извините, не удалось найти рекомендацию по доступным размерам."
-			}
+			},
+			"loadingMessage": "Подбираем размер, подождите...",
+			"recommendedLabel": "Рекомендуемый размер"
 		},
 		"filter": {
 			"title": "Фильтровать и сортировать",
@@ -322,7 +325,8 @@
 			"color": "Цвет",
 			"sort": "Сортировка",
 			"allColors": "Все",
-			"allCategories": "Все",			"colorLabels": {
+			"allCategories": "Все",
+			"colorLabels": {
 				"qora": "Черный",
 				"oq": "Белый",
 				"jigarrang": "Коричневый",
@@ -344,7 +348,8 @@
 				"uniseks": "Унисекс",
 				"lion": "Lion",
 				"abstrakt": "Абстракт"
-			},			"sortOptions": {
+			},
+			"sortOptions": {
 				"name": "По названию",
 				"price": "По цене"
 			},
@@ -356,7 +361,8 @@
 			"all": "Все"
 		},
 		"stock": {
-			"out": "Нет в наличии"
+			"out": "Нет в наличии",
+			"limit": "Доступно только {{stock}} шт. этого товара"
 		},
 		"search": {
 			"label": "Поиск",
@@ -389,10 +395,12 @@
 			"noSizes": "Для {{name}} нет рекомендованных размеров.",
 			"chooseSize": "Пожалуйста, выберите размер для {{name}}.",
 			"sizeUnavailable": "Размер {{size}} недоступен для {{name}}. Пожалуйста, выберите другой размер."
-		}
+		},
+		"showMore": "Ещё"
 	},
 	"common": {
 		"yes": "Да",
-		"no": "Нет"
+		"no": "Нет",
+		"currency": "UZS"
 	}
 }

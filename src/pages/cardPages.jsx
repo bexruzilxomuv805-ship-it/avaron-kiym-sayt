@@ -306,7 +306,7 @@ function CardPage() {
                 <div style={{ flex: 1, minWidth: 220 }}>
                   <h2 style={{ margin: "0 0 8px", fontSize: 18 }}>{item.name}</h2>
                   <p style={{ margin: "0 0 6px", color: "#64748b" }}>{item.category}</p>
-                  <p style={{ margin: "0 0 10px", fontWeight: 700 }}>{item.price.toLocaleString()} so‘m</p>
+                  <p style={{ margin: "0 0 10px", fontWeight: 700 }}>{item.price.toLocaleString()} {t('common.currency')}</p>
                   <p style={{ margin: "0 0 10px", color: "#475569" }}>
                     {t('cart.size')}: <strong>{item.selectedSize || t('cart.notSelected')}</strong>
                   </p>
@@ -331,7 +331,7 @@ function CardPage() {
                   onClick={() => removeItem(item.cartKey)}
                   style={{ padding: "10px 14px", border: "none", borderRadius: 12, background: "#ef4444", color: "#fff", cursor: "pointer", height: 42, display: 'inline-flex', alignItems: 'center', gap: 8 }}
                 >
-                  <FaTrash /> O'chirish
+                  <FaTrash /> {t('cart.remove')}
                 </button>
               </article>
             ))}
@@ -340,7 +340,7 @@ function CardPage() {
           <div style={{ display: "grid", gap: 16, maxWidth: 700 }}>
             <div style={{ padding: 24, borderRadius: 20, background: "#fff", border: "1px solid #e2e8f0" }}>
               <p style={{ margin: 0, marginBottom: 10, color: "#475569" }}>{t('cart.total')}</p>
-              <p style={{ margin: 0, fontSize: 28, fontWeight: 700 }}>{total.toLocaleString()} so‘m</p>
+              <p style={{ margin: 0, fontSize: 28, fontWeight: 700 }}>{total.toLocaleString()} {t('common.currency')}</p>
             </div>
 
             <button

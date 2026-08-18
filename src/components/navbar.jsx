@@ -78,7 +78,7 @@ function Navbar({ currentUser, onLogout }) {
 
   const handleLogout = () => {
     onLogout();
-    showAppToast("Tizimdan chiqdingiz.", "info");
+    showAppToast(t('profile.logoutSuccess'), "info");
     navigate("/");
   };
 

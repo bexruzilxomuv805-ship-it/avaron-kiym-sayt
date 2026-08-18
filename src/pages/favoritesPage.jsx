@@ -104,13 +104,13 @@ function FavoritesPage() {
                     type="button"
                     onClick={() => removeFavorite(product.id)}
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600 transition hover:bg-red-100"
-                    aria-label="Remove favorite"
+                    aria-label={t('favorites.removeAria')}
                   >
                     <FaHeart />
                   </button>
                 </div>
 
-                <p className="text-lg font-bold text-slate-900">{Number(product.price || 0).toLocaleString()} so‘m</p>
+                <p className="text-lg font-bold text-slate-900">{Number(product.price || 0).toLocaleString()} {t('common.currency')}</p>
 
                 <div className="flex items-center gap-2">
                   <Link

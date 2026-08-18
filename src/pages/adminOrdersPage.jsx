@@ -200,7 +200,7 @@ function AdminOrdersPage() {
                 <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                   <div>
                     <p className="font-semibold text-slate-900 text-base">#{order.id} · {customerName}</p>
-                    <p className="mt-1 text-sm text-slate-500">{order.date || "Sana ko'rsatilmadi"}</p>
+                    <p className="mt-1 text-sm text-slate-500">{order.date || t('adminOrders.noDate')}</p>
                   </div>
                     <div className="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-semibold text-slate-700">
                       {orderStatus === "yangi" ? <FaClipboardList className="text-blue-500" /> : orderStatus === "yolda" ? <FaTruck className="text-amber-500" /> : <FaCheckCircle className="text-emerald-500" />}

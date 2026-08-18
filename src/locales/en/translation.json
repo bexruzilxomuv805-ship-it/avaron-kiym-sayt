@@ -13,8 +13,7 @@
 		"newCollection": "New season collection",
 		"description": "Latest clothing, fair prices and a simple page for online shopping. Our store offers classic t-shirts, shirts, jeans and sportswear.",
 		"viewProducts": "View products"
-	}
-	,
+	},
 	"tab": {
 		"home": "Home",
 		"products": "Products",
@@ -22,8 +21,7 @@
 		"orders": "Orders",
 		"profile": "Profile",
 		"adminPanel": "Admin Panel"
-	}
-	,
+	},
 	"adminOrders": {
 		"title": "Admin orders",
 		"noAccess": "You do not have permission to view this page.",
@@ -43,17 +41,20 @@
 		"address": "Address:",
 		"date": "Date:",
 		"totalSum": "Total sum:",
-		"statusChanged": "Order #{{id}} status changed to {{status}}."
-		,"deleteModal": {
+		"statusChanged": "Order #{{id}} status changed to {{status}}.",
+		"deleteModal": {
 			"title": "Delete order",
 			"message": "Are you sure you want to delete this order? This action cannot be undone.",
 			"cancel": "No",
 			"confirm": "Yes, delete"
-		}
-		,"deleted": "Order #{{id}} deleted.",
+		},
+		"deleted": "Order #{{id}} deleted.",
 		"deleteFailed": "Failed to delete order on server.",
 		"delete": "Delete",
-		"deleteAria": "Delete order"
+		"deleteAria": "Delete order",
+		"deleteSuccess": "Order #{{id}} deleted.",
+		"statusUpdateFailed": "Status wasn't saved to the server.",
+		"noDate": "Date not shown"
 	},
 	"order": {
 		"status": {
@@ -61,22 +62,20 @@
 			"yolda": "In transit",
 			"yetkazilgan": "Delivered"
 		}
-	}
-	,
+	},
 	"adminPage": {
 		"title": "Admin panel",
 		"noAccess": "You do not have permission to view this page.",
 		"adminLabel": "AVARON Admin Panel",
 		"header": "AVARON — Admin dashboard",
-		"description": "Add new products, warehouse statistics and user management.",
+		"description": "Description",
 		"loadError": "Failed to load admin panel data.",
 		"fillAll": "Please fill all fields.",
 		"invalidNumbers": "Price and stock must be positive numbers.",
 		"productUpdated": "Product updated successfully.",
 		"productCreated": "New product added successfully.",
 		"updateError": "Failed to update product.",
-		"createError": "Failed to create product."
-		,
+		"createError": "Failed to create product.",
 		"loading": "Loading...",
 		"currency": "UZS",
 		"quantityUnit": "pcs",
@@ -135,27 +134,23 @@
 		"stockPlaceholder": "e.g. 20",
 		"sizes": "Sizes",
 		"sizesPlaceholder": "e.g. S,M,L,XL",
-		"description": "Description",
 		"descriptionPlaceholder": "Brief product description",
 		"productsListDescription": "Created products and warehouse information.",
 		"updateProduct": "Update product",
 		"addProduct": "Add product",
 		"cancelEdit": "Cancel edit",
 		"productDeleted": "Product deleted successfully.",
-		"deleteError": "Failed to delete product."
-		,
+		"deleteError": "Failed to delete product.",
 		"filterOptions": {
 			"all": "All products",
 			"out": "Out of stock"
-		}
-		,
+		},
 		"pagination": {
 			"prev": "Previous",
 			"next": "Next",
 			"pageOf": "Page {{current}} / {{total}}"
 		}
-	}
-	,
+	},
 	"cart": {
 		"clearAll": "Clear cart",
 		"clearConfirmMessage": "Do you really want to remove all items from the cart?",
@@ -176,11 +171,11 @@
 			"checkout": "Complete order"
 		},
 		"order": {
-				"firstNameLabel": "First name",
-				"firstNamePlaceholder": "Your first name",
-				"firstNameRequired": "Please enter your first name.",
-				"lastNameLabel": "Last name",
-				"lastNamePlaceholder": "Your last name (optional)",
+			"firstNameLabel": "First name",
+			"firstNamePlaceholder": "Your first name",
+			"firstNameRequired": "Please enter your first name.",
+			"lastNameLabel": "Last name",
+			"lastNamePlaceholder": "Your last name (optional)",
 			"detailsTitle": "Order details",
 			"phoneLabel": "Phone number",
 			"phonePlaceholder": "+998 90 123 45 67",
@@ -194,7 +189,10 @@
 			"coordinatesLabel": "Detected coordinates"
 		},
 		"confirmedTitle": "Your order has been accepted",
-		"confirmedInfo": "Your order will be delivered to the following address:"
+		"confirmedInfo": "Your order will be delivered to the following address:",
+		"size": "Size",
+		"notSelected": "Not selected",
+		"stockLimit": "Only {{stock}} left in stock"
 	},
 	"login": {
 		"title": "Login",
@@ -283,7 +281,9 @@
 		"emptyText": "Choose the products you like from the product page.",
 		"viewProducts": "View products",
 		"view": "View",
-		"remove": "Remove"
+		"remove": "Remove",
+		"addAria": "Add to favorites",
+		"removeAria": "Remove from favorites"
 	},
 	"notFound": {
 		"title": "Page not found.",
@@ -314,7 +314,9 @@
 			"errors": {
 				"fillFields": "Please fill in age, height, and weight fields.",
 				"noRecommendation": "Sorry, no recommendation could be found for the available sizes."
-			}
+			},
+			"loadingMessage": "Determining size, please wait...",
+			"recommendedLabel": "Recommended size"
 		},
 		"filter": {
 			"title": "Filter & sort",
@@ -359,7 +361,8 @@
 			"all": "All"
 		},
 		"stock": {
-			"out": "Out of stock"
+			"out": "Out of stock",
+			"limit": "Only {{stock}} of this product available"
 		},
 		"search": {
 			"label": "Search",
@@ -392,10 +395,12 @@
 			"noSizes": "No recommended sizes are available for {{name}}.",
 			"chooseSize": "Please choose a size for {{name}}.",
 			"sizeUnavailable": "Size {{size}} is not available for {{name}}. Please select another size."
-		}
+		},
+		"showMore": "More"
 	},
 	"common": {
 		"yes": "Yes",
-		"no": "No"
+		"no": "No",
+		"currency": "UZS"
 	}
 }

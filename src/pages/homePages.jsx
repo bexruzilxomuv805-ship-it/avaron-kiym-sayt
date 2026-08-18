@@ -64,7 +64,7 @@ function HomePage() {
             <div className="p-5">
               <h2 className="text-lg font-semibold text-slate-900">{product.name}</h2>
               <p className="mt-2 text-sm text-slate-500">{product.category}</p>
-              <p className="mt-4 font-semibold text-slate-900">{product.price.toLocaleString()} so‘m</p>
+              <p className="mt-4 font-semibold text-slate-900">{product.price.toLocaleString()} {t('common.currency')}</p>
             </div>
           </article>
         ))}

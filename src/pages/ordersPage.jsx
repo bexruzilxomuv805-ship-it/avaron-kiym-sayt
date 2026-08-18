@@ -195,7 +195,7 @@ function OrdersPage() {
                     <FaCheckCircle /> {getStatusLabel(order.status || 'yangi')}
                   </div>
                   <p style={{ margin: 0, fontSize: 20, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <FaBoxOpen /> {order.total.toLocaleString()} so'm
+                    <FaBoxOpen /> {order.total.toLocaleString()} {t('common.currency')}
                   </p>
                 </div>
               </div>
@@ -218,13 +218,13 @@ function OrdersPage() {
                       <div style={{ flex: 1 }}>
                         <p style={{ margin: 0, fontSize: 14, fontWeight: 600 }}>{item.name}</p>
                         <p style={{ margin: 0, fontSize: 13, color: "#475569" }}>
-                          {item.quantity} x {item.price.toLocaleString()} so'm
+                          {item.quantity} x {item.price.toLocaleString()} {t('common.currency')}
                         </p>
                         <p style={{ margin: "4px 0 0", fontSize: 13, color: "#0f766e", fontWeight: 600 }}>
-                          O‘lcham: {item.selectedSize || "Tanlanmagan"}
+                          {t('cart.size')}: {item.selectedSize || t('cart.notSelected')}
                         </p>
                       </div>
-                      <p style={{ margin: 0, fontWeight: 600 }}>{(item.price * item.quantity).toLocaleString()} so'm</p>
+                      <p style={{ margin: 0, fontWeight: 600 }}>{(item.price * item.quantity).toLocaleString()} {t('common.currency')}</p>
                     </div>
                   ))}
                 </div>

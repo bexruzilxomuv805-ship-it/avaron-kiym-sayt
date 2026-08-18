@@ -610,10 +610,10 @@ function ProductPage() {
         </div>
         {assistantError ? <p className="mt-3 text-sm text-red-600">{assistantError}</p> : null}
         {assistantLoading ? (
-          <p className="mt-4 text-sm text-slate-600">O‘lcham aniqlanmoqda, iltimos biroz kuting...</p>
+          <p className="mt-4 text-sm text-slate-600">{t('products.assistant.loadingMessage')}</p>
         ) : assistantResult ? (
           <p className="mt-4 text-sm text-slate-700">
-            Tavsiya etilgan o‘lcham: <span className="font-semibold text-slate-900">{assistantResult}</span>
+            {t('products.assistant.recommendedLabel')}: <span className="font-semibold text-slate-900">{assistantResult}</span>
           </p>
         ) : null}
       </form>
@@ -700,7 +700,7 @@ function ProductPage() {
                     ? "border-red-300 bg-red-100 text-red-600 shadow-[0_0_18px_rgba(239,68,68,0.45)]"
                     : "border-slate-300 bg-white/90 text-slate-600 shadow-sm hover:bg-white hover:text-red-500"
                   }`}
-                  aria-label={favoriteIds.includes(product.id) ? "Remove from favorites" : "Add to favorites"}
+                  aria-label={favoriteIds.includes(product.id) ? t('favorites.removeAria') : t('favorites.addAria')}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -724,7 +724,7 @@ function ProductPage() {
                     </span>
                   ) : null}
                 </div>
-                <p className="mt-4 font-semibold text-slate-900">{product.price.toLocaleString()} so‘m</p>
+                <p className="mt-4 font-semibold text-slate-900">{product.price.toLocaleString()} {t('common.currency')}</p>
 
                 {productSizes.length || isOutOfStock ? (
                   <div className="mt-4 flex flex-wrap gap-2">
@@ -779,7 +779,7 @@ function ProductPage() {
                         }}
                         className="rounded-full border border-slate-300 bg-white px-3 py-1 text-sm text-slate-700 transition hover:border-slate-900"
                       >
-                        Ko'proq &gt;
+                        {t('products.showMore')} &gt;
                       </button>
                     )}
                   </div>

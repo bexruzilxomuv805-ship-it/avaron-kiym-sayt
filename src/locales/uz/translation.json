@@ -13,8 +13,7 @@
 		"newCollection": "Yangi mavsum kolleksiyasi",
 		"description": "Eng so‘nggi kiyimlar, qulay narxlar va onlayn xarid qilish uchun sodda sahifa. Bizning do‘konimizda klassik futbolkalar, ko‘ylaklar, jinsi shimlar va sport kiyimlari mavjud.",
 		"viewProducts": "Maxsulotlarni ko‘rish"
-	}
-	,
+	},
 	"tab": {
 		"home": "Bosh sahifa",
 		"products": "Maxsulotlar",
@@ -22,8 +21,7 @@
 		"orders": "Buyurtmalar",
 		"profile": "Profil",
 		"adminPanel": "Admin Panel"
-	}
-	,
+	},
 	"adminOrders": {
 		"title": "Admin buyurtmalari",
 		"noAccess": "Sizda ushbu sahifaga kirish huquqi yo'q.",
@@ -49,11 +47,14 @@
 			"message": "Siz ushbu buyurtmani rostanham o'chirishni xohlaysizmi? Bu amalni qaytarib bo'lmaydi.",
 			"cancel": "Yo'q",
 			"confirm": "Ha, o'chirish"
-		}
-		,"deleted": "Buyurtma #{{id}} o'chirildi.",
+		},
+		"deleted": "Buyurtma #{{id}} o'chirildi.",
 		"deleteFailed": "Buyurtmani serverdan o'chirishda xato.",
 		"delete": "O'chirish",
-		"deleteAria": "Buyurtmani o'chirish"
+		"deleteAria": "Buyurtmani o'chirish",
+		"deleteSuccess": "Buyurtma #{{id}} o'chirildi.",
+		"statusUpdateFailed": "Status serverga saqlanmadi.",
+		"noDate": "Sana ko'rsatilmadi"
 	},
 	"order": {
 		"status": {
@@ -61,22 +62,20 @@
 			"yolda": "Yo‘lda",
 			"yetkazilgan": "Yetkazilgan"
 		}
-	}
-	,
+	},
 	"adminPage": {
 		"title": "Admin panel",
 		"noAccess": "Sizda ushbu sahifani ko'rish huquqi yo'q.",
 		"adminLabel": "AVARON Admin Panel",
 		"header": "AVARON — Boshqaruv paneli",
-		"description": "Yangi mahsulotlar qo'shish, ombor statistikasi va foydalanuvchilar boshqaruvi.",
+		"description": "Ta'rif",
 		"loadError": "Admin panel ma'lumotlarini yuklashda xatolik yuz berdi.",
 		"fillAll": "Iltimos barcha maydonlarni to'ldiring.",
 		"invalidNumbers": "Narx va ombor qiymatlari to'g'ri musbat son bo'lishi kerak.",
 		"productUpdated": "Mahsulot muvaffaqiyatli yangilandi.",
 		"productCreated": "Yangi mahsulot muvaffaqiyatli qo'shildi.",
 		"updateError": "Mahsulotni yangilashda xatolik yuz berdi.",
-		"createError": "Mahsulot qo'shishda xatolik yuz berdi."
-		,
+		"createError": "Mahsulot qo'shishda xatolik yuz berdi.",
 		"loading": "Yuklanmoqda...",
 		"currency": "so'm",
 		"quantityUnit": "ta",
@@ -135,27 +134,23 @@
 		"stockPlaceholder": "Misol: 20",
 		"sizes": "O‘lchamlar",
 		"sizesPlaceholder": "Misol: S,M,L,XL",
-		"description": "Ta'rif",
 		"descriptionPlaceholder": "Mahsulot haqida qisqacha ma'lumot",
 		"productsListDescription": "Yaratilgan mahsulotlar va ombor ma'lumotlari.",
 		"updateProduct": "Mahsulotni yangilash",
 		"addProduct": "Mahsulot qo'shish",
 		"cancelEdit": "Tahrirlashni bekor qilish",
 		"productDeleted": "Mahsulot muvaffaqiyatli o'chirildi.",
-		"deleteError": "Mahsulotni o'chirishda xatolik yuz berdi."
-		,
+		"deleteError": "Mahsulotni o'chirishda xatolik yuz berdi.",
 		"filterOptions": {
 			"all": "Barcha mahsulotlar",
 			"out": "Faqat tugaganlar"
-		}
-		,
+		},
 		"pagination": {
 			"prev": "Oldingi",
 			"next": "Keyingi",
 			"pageOf": "Sahifa {{current}} / {{total}}"
 		}
-	}
-	,
+	},
 	"cart": {
 		"clearAll": "Savatchani tozalash",
 		"clearConfirmMessage": "Savatchadagi barcha mahsulotlarni o‘chirishni xohlaysizmi?",
@@ -178,11 +173,11 @@
 			"checkout": "Buyurtmani yakunlash"
 		},
 		"order": {
-				"firstNameLabel": "Ism",
-				"firstNamePlaceholder": "Ismingiz",
-				"firstNameRequired": "Iltimos, ismingizni kiriting.",
-				"lastNameLabel": "Familiya",
-				"lastNamePlaceholder": "Familiyangiz (ixtiyoriy)",
+			"firstNameLabel": "Ism",
+			"firstNamePlaceholder": "Ismingiz",
+			"firstNameRequired": "Iltimos, ismingizni kiriting.",
+			"lastNameLabel": "Familiya",
+			"lastNamePlaceholder": "Familiyangiz (ixtiyoriy)",
 			"detailsTitle": "Buyurtma ma'lumotlari",
 			"phoneLabel": "Telefon raqam",
 			"phonePlaceholder": "+998 90 123 45 67",
@@ -194,7 +189,10 @@
 			"confirm": "Buyurtmani tasdiqlash",
 			"confirmMessage": "Tez orada sizga telefon orqali bog'lanamiz: {{phone}}",
 			"coordinatesLabel": "Aniqlangan koordinatalar"
-		}
+		},
+		"size": "O'lcham",
+		"notSelected": "Tanlanmagan",
+		"stockLimit": "Mahsulotdan faqat {{stock}} ta qolgan"
 	},
 	"login": {
 		"title": "Kirish",
@@ -283,7 +281,9 @@
 		"emptyText": "Mahsulotlar sahifasidan ko‘ngilga yaqin bo‘lganini tanlang.",
 		"viewProducts": "Mahsulotlarni ko‘rish",
 		"view": "Ko‘rish",
-		"remove": "O‘chirish"
+		"remove": "O‘chirish",
+		"addAria": "Sevimlilarga qo'shish",
+		"removeAria": "Sevimlilardan olib tashlash"
 	},
 	"notFound": {
 		"title": "Sahifa topilmadi.",
@@ -314,7 +314,9 @@
 			"errors": {
 				"fillFields": "Iltimos yosh, bo‘y, vazn maydonlarini to‘ldiring.",
 				"noRecommendation": "Kechirasiz, mavjud o‘lchamlar bo‘yicha tavsiya topilmadi."
-			}
+			},
+			"loadingMessage": "O'lcham aniqlanmoqda, iltimos biroz kuting...",
+			"recommendedLabel": "Tavsiya etilgan o'lcham"
 		},
 		"filter": {
 			"title": "Filtr va saralash",
@@ -359,7 +361,8 @@
 			"all": "Barchaga"
 		},
 		"stock": {
-			"out": "Tugagan"
+			"out": "Tugagan",
+			"limit": "Bu mahsulotdan faqat {{stock}} ta mavjud"
 		},
 		"search": {
 			"label": "Qidirish",
@@ -392,10 +395,12 @@
 			"noSizes": "{{name}} uchun tavsiya etilgan o‘lchamlar mavjud emas.",
 			"chooseSize": "{{name}} uchun o‘lcham tanlang.",
 			"sizeUnavailable": "{{name}} uchun tanlangan {{size}} o‘lcham mavjud emas. Iltimos, boshqa o‘lchamni tanlang."
-		}
+		},
+		"showMore": "Ko'proq"
 	},
 	"common": {
 		"yes": "Ha",
-		"no": "Yo‘q"
+		"no": "Yo‘q",
+		"currency": "so'm"
 	}
 }
