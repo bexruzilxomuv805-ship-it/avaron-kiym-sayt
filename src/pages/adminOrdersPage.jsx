@@ -70,12 +70,15 @@ function AdminOrdersPage() {
       order.id === orderId ? { ...order, status: nextStatus } : order
     );
 
+    // instant UI feedback, but don't broadcast "order-updated" yet — a
+    // listener (including this page's own refreshOrders) would refetch
+    // from the server before the patch below lands, undoing this update
     setOrders(nextOrders);
-    writeStoredOrders(nextOrders);
     setMessage(t('adminOrders.statusChanged', { id: orderId, status: getStatusLabel(nextStatus) }));
 
     try {
       await api.patch(`/orders/${orderId}`, { status: nextStatus });
+      writeStoredOrders(nextOrders);
     } catch (err) {
       console.error('Failed to update order status on server', err);
       showAppToast(t('adminOrders.statusUpdateFailed', { defaultValue: "Status serverga saqlanmadi" }), 'error');
