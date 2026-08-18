@@ -25,9 +25,15 @@ function AdminOrdersPage() {
   const [orderFilter, setOrderFilter] = useState("all");
   const [message, setMessage] = useState("");
 
-  const refreshOrders = () => {
-    setOrders(readStoredOrders());
-  };
+  const refreshOrders = async () => {
+  try {
+    const response = await api.get('/orders');
+    setOrders(response.data);
+  } catch (err) {
+    console.error('Failed to fetch orders from server', err);
+    setOrders(readStoredOrders()); // zaxira sifatida local'dan
+  }
+};
 
   useEffect(() => {
     refreshOrders();
@@ -44,7 +50,7 @@ function AdminOrdersPage() {
 
   const getStatusLabel = (status) => t(orderStatusLabelKey[status] || status);
 
-  const updateOrderStatus = (orderId, nextStatus) => {
+  const updateOrderStatus = async (orderId, nextStatus) => {
     const nextOrders = orders.map((order) =>
       order.id === orderId ? { ...order, status: nextStatus } : order
     );
@@ -52,6 +58,13 @@ function AdminOrdersPage() {
     setOrders(nextOrders);
     writeStoredOrders(nextOrders);
     setMessage(t('adminOrders.statusChanged', { id: orderId, status: getStatusLabel(nextStatus) }));
+
+    try {
+      await api.patch(`/orders/${orderId}`, { status: nextStatus });
+    } catch (err) {
+      console.error('Failed to update order status on server', err);
+      showAppToast(t('adminOrders.statusUpdateFailed', { defaultValue: "Status serverga saqlanmadi" }), 'error');
+    }
   };
 
   const deleteOrderConfirmed = async (orderId) => {

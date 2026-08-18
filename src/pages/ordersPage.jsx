@@ -18,10 +18,6 @@ function OrdersPage() {
   const currentUser = useReduxState((state) => state.auth.user);
   const { t } = useTranslation();
 
-  if (currentUser?.role === "admin") {
-    return <Navigate to="/admin" replace />;
-  }
-
   useEffect(() => {
     if (!currentUser) {
       setOrders([]);
@@ -68,6 +64,10 @@ function OrdersPage() {
   }, [orders, statusFilter]);
 
   const getStatusLabel = (statusKey) => t(`order.status.${statusKey}`) || t('order.status.yangi');
+
+  if (currentUser?.role === "admin") {
+    return <Navigate to="/admin" replace />;
+  }
 
   return (
     <section style={{ padding: 24, minHeight: "80vh" }}>

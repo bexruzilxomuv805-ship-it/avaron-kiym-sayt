@@ -10,9 +10,6 @@ import { useTranslation } from 'react-i18next';
 function CardPage() {
   const currentUser = useReduxState((state) => state.auth.user);
   const { t } = useTranslation();
-  if (currentUser?.role === "admin") {
-    return <Navigate to="/admin" replace />;
-  }
   const [cart, setCart] = useState([]);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [phone, setPhone] = useState("");
@@ -178,7 +175,6 @@ function CardPage() {
       // continue; we'll still attempt to place the order locally
     }
 
-    const orders = readStoredOrders();
     const orderDate = new Date();
     const newOrder = {
       id: Date.now(),
@@ -195,10 +191,9 @@ function CardPage() {
       date: orderDate.toLocaleString("uz-UZ", { dateStyle: "medium", timeStyle: "short" }),
       createdAt: orderDate.toISOString(),
     };
-    const nextOrders = [...orders, newOrder];
-    writeStoredOrders(nextOrders);
 
-    // attempt to decrement stock on server for each cart item (do after saving order locally)
+    // decrement stock on server and save the order to the server (single POST)
+    let savedToServer = false;
     try {
       // group quantities by product id
       const qtyById = cart.reduce((acc, it) => {
@@ -219,11 +214,18 @@ function CardPage() {
       // post order to server
       const dbOrderPayload = buildOrderPayloadForDb(newOrder);
       await api.post("/orders", dbOrderPayload);
+      savedToServer = true;
 
       // notify other parts of the app that products changed (admin stats etc.)
       window.dispatchEvent(new Event('products-updated'));
     } catch (error) {
       console.error("Order DB save or stock update failed:", error);
+    }
+
+    if (!savedToServer) {
+      // server unreachable: keep the order locally so it isn't lost
+      const existingOrders = readStoredOrders();
+      writeStoredOrders([...existingOrders, newOrder]);
       showAppToast(t('cart.localSaveWarning', { defaultValue: "Buyurtma serverga saqlanmadi, mahalliy saqlashdan foydalanildi" }), "warning");
     }
 
@@ -236,6 +238,10 @@ function CardPage() {
     setCoordinates(null);
     showAppToast(t('cart.orderAccepted', { defaultValue: "Buyurtmangiz qabul qilindi" }), "success");
   };
+
+  if (currentUser?.role === "admin") {
+    return <Navigate to="/admin" replace />;
+  }
 
   return (
     <section style={{ padding: 24, minHeight: "80vh" }}>
